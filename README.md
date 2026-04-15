@@ -13,7 +13,7 @@ En una gran cantidad de hogares, las labores domésticas como cocinar, lavar, cu
 
 Por ello, este proyecto pretende recolectar y analizar datos que miden el tiempo que se dedican a estas labores, con el fin de medir el impacto en el binestar de las personas que se dedican a estas labores, y generar conciencia sobre la desigualdad.
 
-##Encuesta de Percepción del trabajo doméstico y de cuidados ey su impacto en el bienestar
+## Encuesta de Percepción del trabajo doméstico y de cuidados ey su impacto en el bienestar
 
 Esta encuesta es anónima, la información aquí recabada será utilizada únicamente con fines académicos y profesionales. Busca entender como el trabajo no remunerado y de cuidados afectan en la vida, el desarrollo personal y el bienestar.
 
