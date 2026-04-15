@@ -58,3 +58,31 @@ modelo<- lm(impacto_bienestar~ horas_domestico + horas_cuidados + nivel_estres, 
 
 #Resultados
 summary(modelo)
+
+==========================================
+#Análisis de Resultados
+=========================================
+#Matriz de correlación
+#Las variables que más se asocian con el **impacto negativo en el bienestar** so las **horas de trabajo doméstico*** (0.58)
+#y el **nivel de estrés**(0.54). Soprendentemente, las **horas de cuidado** tiene una correlación débil (0.27) con respecto al bienestar
+#aunque sí correlacionan con el estrés (0.49).
+
+======================================
+#Gráficas
+
+#1) Relación entre horas de trabajo doméstico e impacto en el bienestar
+#La línea positiva ascendente indica que a mayor número de horas de trabajo doméstico, 
+#mayor es el impacto negativo en el bienestar. 
+#A diferencia de la gráfica de cuidados, donde hay dispersión de puntos, los puntos se alinean mejor alrededor 
+#de la línea de tendencia.
+
+#2)Relación entre horas de cuidados e impacto en el bienestar
+#La gráfica muestra una línea positiva ascendente, lo que puede indicar que a mayor número de horas de cuidado,
+#mayor es el impacto negativo en el bienestar. aunque presenta una alta dispersión.
+
+#Regreesión lineal
+#El modelo es medianamente signficativo en su conjunto, lo que indica que las variables si tienen un efecto real
+#sobre la variable dependiente. 
+#Sin embargo, cabe destacra que, el trabajo doméstico (0.00521) es medianamente signficativo,
+#y el nivel de estrés (0.02111) tiene una signficancia baja, mientras que el trabajo de cuidados no muestra un efecto significativo.
+#Este modelo explica aproximádamente el 44.4% del impacto de las variables sobre el bienestar.
