@@ -1,0 +1,60 @@
+========================================================================================
+## Percepción del trabajo doméstico y de cuidados y su imacto en el binestar emocional
+========================================================================================
+#El trabajo doméstico y de cuidados ha sido históricamente atribuido a las mujeres, como señala Federeci (2013), el trabajo doméstico no solo se ha impuesto a las mujeres, sino que se ha adjudicado a su “naturaleza”,  en lugar de ser reconocido como trabajo, y destinándolo a no ser remunerado, por no considerarse “productivo”. 
+#En México, así como en otros países, la carga de este trabajo recae en mujeres jóvenes y adultas, y al no ser remunerado se ve condenado a la invisibilización. Este actúa como una cadena que perpetúa las brechas de desigualdad de género en todos los ámbitos de la vida de las mujeres, ya que les impide a millones de mujeres en el país, a acceder a educación, salud, empleos remunerados y dignos
+#en su participación política, a una vida libre de violencia, y en pocas palabras, tener libertad de decidir de forma plena sobre su vida. (OXFAM, 2018)
+#Este, se compone desde cuestiones como la limpieza, la elaboración de alimentos, la atención a las necesidades del hogar y los miembros que lo habitan, además de trabajos de cuidados como lo son a personas adultos mayores, infancias o personas con discapacidad o condiciones que los convierten en dependientes.
+#En una gran cantidad de hogares, las labores domésticas como cocinar, lavar, cuidar los niños, siguen estando a cargo de las mujeres, que las realizan sin ningún tipo de remuneración, a pesar de su importancia para la sociedad. 
+#Por ello, este proyecto pretende recolectar y analizar datos que miden el tiempo que se dedican a estas labores, y el impacto que este tiene en su binestar con el fin de generar conciencia sobre la desigualdad.
+===================================================================================================================================================================================================================================================================================================================================================================================================================
+
+datos<-data.frame(
+  impacto_bienestar=c(1,5,0,8,2,10,4,9,0,2,1,2,2,6,7,10,5,3,8,7,3,8,10,6,10,8,7,5,5,6,7,0,7,5,7,8,7),
+  horas_domestico=c(1,3,2,5,2,3,1,3,1,2,3,5,1,4,4,6,2,2,5,3,1,4,6,5,4,4,2,1,2,6,8,1,2,3,5,3,8),
+  horas_cuidados=c(0,24,0,5,11,4,6,0,0,2,0,5,0,2,2,12,2,3,0,8,3,3,2,15,12,24,0,8,1,3,6,0,3,1,1,1,12),
+  nivel_estres=c(0,5,2,8,10,8,4,2,0,2,3,10,0,6,2,10,10,4,3,10,5,10,6,9,10,10,8,10,7,4,8,0,10,5,10,5,10)
+)
+
+#Matriz de correlación
+
+matriz_cor<-cor(datos[,c("impacto_bienestar", "horas_domestico", "horas_cuidados", "nivel_estres")])
+matriz_cor
+#Para redondear los números de la tabla
+round(matriz_cor, 2)
+
+
+#Instalación de paquetes
+install.packages("ggplot2")
+install.packages("corrplot")
+
+library("ggplot2")                 
+library("corrplot")
+
+# Gráfica: impacto_bienestar vs horas_domesticas
+library(ggplot2)
+
+ggplot(datos, aes(x = horas_domestico, y = impacto_bienestar)) +
+  geom_point(size = 3, alpha = 0.7, color = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(title = "Relación entre horas de trabajo doméstico e impacto en el bienestar",
+       x = "Horas diarias de trabajo doméstico",
+       y = "Impacto negativo en bienestar (0-10)") +
+  theme_minimal()
+
+# Gráfica: impacto_bienestar vs horas_cuidados
+
+ggplot(datos, aes(x = horas_cuidados, y = impacto_bienestar)) +
+  geom_point(size = 3, alpha = 0.7, color = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(title = "Relación entre horas de trabajo de cuidados e impacto en el bienestar",
+       x = "Horas diarias de trabajo de cuidados",
+       y = "Impacto negativo en bienestar (0-10)") +
+  theme_minimal()
+
+#Regresión lineal
+
+modelo<- lm(impacto_bienestar~ horas_domestico + horas_cuidados + nivel_estres, data=datos)
+
+#Resultados
+summary(modelo)
