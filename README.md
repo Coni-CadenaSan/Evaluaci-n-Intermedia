@@ -1,4 +1,4 @@
-# Evaluaci-n-Intermedia
+# Evaluacion-Intermedia
 Programación en R
 ==============================================================================================
 ## Percepción del impacto del trabajo no remunerado y de cuidados 
